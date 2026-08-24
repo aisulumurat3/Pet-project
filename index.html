@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тёмный Зёрна — кофейня</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0c0a08;
+    --bg-card: #16130f;
+    --cream: #ece3d6;
+    --cream-dim: #a89e8f;
+    --accent: #c08a52;
+    --line: #2a251f;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Manrope', sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(12,10,8,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .logo{ font-size:1.25rem; letter-spacing:0.02em; }
+  nav{ display:flex; gap:32px; }
+  nav a{ font-size:0.9rem; color:var(--cream-dim); transition:color .2s; }
+  nav a:hover{ color:var(--cream); }
+  .btn{
+    display:inline-block;
+    padding:12px 26px;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    border-radius:2px;
+    transition:background .2s, color .2s;
+  }
+  .btn:hover{ background:var(--accent); color:var(--bg); }
+
+  /* Hero */
+  .hero{
+    padding:120px 0 100px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:-120px; top:-120px;
+    width:420px; height:420px;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-40px; top:-40px;
+    width:280px; height:280px;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+  .eyebrow{
+    color:var(--accent);
+    font-size:0.8rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    max-width:780px;
+    line-height:1.05;
+  }
+  .hero p{
+    margin-top:24px;
+    max-width:480px;
+    color:var(--cream-dim);
+    font-size:1.05rem;
+  }
+  .hero .actions{ margin-top:40px; display:flex; gap:16px; }
+  .btn-solid{
+    background:var(--accent); color:var(--bg);
+    padding:13px 28px; border-radius:2px; font-size:0.85rem; letter-spacing:0.03em;
+  }
+
+  /* Section shared */
+  section{ padding:90px 0; border-bottom:1px solid var(--line); }
+  .section-head{ margin-bottom:56px; }
+  .section-head .eyebrow{ margin-bottom:14px; }
+  .section-head h2{ font-size:2.2rem; }
+
+  /* Menu */
+  .menu-list{ display:flex; flex-direction:column; }
+  .menu-item{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .menu-item:last-child{ border-bottom:none; }
+  .menu-item .name{ font-family:'Fraunces', serif; font-size:1.15rem; }
+  .menu-item .desc{ color:var(--cream-dim); font-size:0.88rem; margin-top:4px; max-width:420px; }
+  .menu-item .price{ font-family:'Fraunces', serif; color:var(--accent); font-size:1.1rem; white-space:nowrap; padding-left:20px; }
+
+  /* About */
+  .about{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:36px;
+  }
+  .about-card p{ color:var(--cream-dim); font-size:0.95rem; }
+  .stat-row{ display:flex; gap:40px; margin-top:28px; }
+  .stat b{ display:block; font-family:'Fraunces', serif; font-size:1.8rem; color:var(--accent); }
+  .stat span{ font-size:0.8rem; color:var(--cream-dim); }
+
+  /* Contact / hours */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+  .hours-row{ display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:0.92rem; color:var(--cream-dim); }
+  .hours-row span:last-child{ color:var(--cream); }
+
+  footer{ padding:40px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; color:var(--cream-dim); font-size:0.82rem; }
+
+  @media (max-width: 760px){
+    nav{ display:none; }
+    .about, .contact-grid{ grid-template-columns:1fr; }
+    .hero{ padding:90px 0 70px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Тёмный&nbsp;Зёрна</div>
+    <nav>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn">Забронировать</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Кофейня · Шымкент</div>
+    <h1>Кофе, обжаренный так, будто это единственное, что мы умеем делать хорошо.</h1>
+    <p>Небольшая кофейня в тёмных тонах — своя обжарка, тихая атмосфера и место, где можно задержаться дольше, чем на один эспрессо.</p>
+    <div class="actions">
+      <a href="#menu" class="btn-solid">Смотреть меню</a>
+      <a href="#contact" class="btn">Как нас найти</a>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Меню</div>
+      <h2>Что мы наливаем</h2>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div>
+          <div class="name">Эспрессо</div>
+          <div class="desc">Собственная обжарка, тёмная и плотная</div>
+        </div>
+        <div class="price">900 ₸</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Флэт уайт</div>
+          <div class="desc">Двойной эспрессо, бархатное молоко</div>
+        </div>
+        <div class="price">1 300 ₸</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Капучино</div>
+          <div class="desc">Классика, плотная пена</div>
+        </div>
+        <div class="price">1 200 ₸</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Фильтр-кофе дня</div>
+          <div class="desc">Меняется каждую неделю, спросите бариста</div>
+        </div>
+        <div class="price">1 100 ₸</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Какао на тёмном шоколаде</div>
+          <div class="desc">Для тех, кто не пьёт кофе, но заходит за атмосферой</div>
+        </div>
+        <div class="price">1 400 ₸</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="eyebrow">О нас</div>
+      <h2 style="font-size:2.2rem; margin-bottom:20px;">Маленькая обжарочная, выросшая в кофейню</h2>
+      <p style="color:var(--cream-dim); font-size:0.98rem;">Мы начинали с обжарки на 3 кг в неделю для друзей. Сегодня — это место с собственной обжаркой, где каждая чашка начинается с зерна, которое мы выбрали сами.</p>
+    </div>
+    <div class="about-card">
+      <p>Работаем без спешки: одна барная стойка, шесть столов, тихая музыка. Место для тех, кто пришёл не просто выпить кофе.</p>
+      <div class="stat-row">
+        <div class="stat"><b>2019</b><span>год основания</span></div>
+        <div class="stat"><b>7</b><span>сортов зерна</span></div>
+        <div class="stat"><b>6</b><span>столов в зале</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Часы работы</div>
+      <div class="hours-row"><span>Пн – Пт</span><span>8:00 – 21:00</span></div>
+      <div class="hours-row"><span>Сб – Вс</span><span>9:00 – 22:00</span></div>
+    </div>
+    <div>
+      <div class="eyebrow">Контакты</div>
+      <p style="margin-top:14px; color:var(--cream-dim);">г. Шымкент, ул. Кунаева, 12</p>
+      <p style="margin-top:8px; color:var(--cream-dim);">+7 (700) 123-45-67</p>
+      <a href="#" class="btn" style="margin-top:24px; display:inline-block;">Написать в Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Тёмный Зёрна</span>
+    <span>Сделано с любовью к чёрному кофе</span>
+  </div>
+</footer>
+
+</body>
+</html>
